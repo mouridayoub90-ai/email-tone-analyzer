@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Tone Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Email Tone Analyzer</h1>
+        <p>Paste your email draft below to check how it sounds before you send it.</p>
+
+        <form method="POST">
+            <textarea name="email_text" rows="8" placeholder="Type or paste your email here..." required>{{ user_text }}</textarea>
+            <br>
+            <button type="submit">Analyze Tone</button>
+        </form>
+
+        {% if tone_result %}
+        <div class="result">
+            <h2>Analysis Result:</h2>
+            <p class="tone">{{ tone_result }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
